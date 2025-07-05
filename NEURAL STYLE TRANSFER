@@ -1,0 +1,70 @@
+import tensorflow as tf
+import tensorflow_hub as hub
+import numpy as np
+import PIL.Image
+import os
+
+def load_image(path):
+    print(f"✅ Loading image: {path}")
+    img = tf.io.read_file(path)
+    img = tf.image.decode_image(img, channels=3)
+    img = tf.image.convert_image_dtype(img, tf.float32)
+    img = tf.image.resize(img, [256, 256])
+    img = img[tf.newaxis, :]
+    print(f"🔍 Image shape: {img.shape}")
+    return img
+
+def save_image(image_tensor, filename):
+    image = tf.squeeze(image_tensor)
+    image = tf.clip_by_value(image, 0.0, 1.0)
+    image = tf.image.convert_image_dtype(image, dtype=tf.uint8)
+    pil_img = PIL.Image.fromarray(image.numpy())
+    pil_img.save(filename)
+    print(f"✅ Saved stylized image to: {filename}")
+
+def list_images_in_folder(folder):
+    valid_extensions = [".jpg", ".jpeg", ".png"]
+    files = os.listdir(folder)
+    image_files = [os.path.join(folder, f) for f in files if os.path.splitext(f)[1].lower() in valid_extensions]
+    return image_files
+
+def main():
+    print("🔄 Loading model...")
+    model = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
+    print("✅ Model loaded!")
+
+    # Folders where you keep your photos and style images
+    content_folder = "content_images"
+    style_folder = "style_images"
+
+    # Automatically list all images in those folders
+    content_images = list_images_in_folder(content_folder)
+    style_images = list_images_in_folder(style_folder)
+
+    if not content_images:
+        print(f"⚠️ No content images found in '{content_folder}'!")
+        return
+    if not style_images:
+        print(f"⚠️ No style images found in '{style_folder}'!")
+        return
+
+    output_dir = "stylized_outputs"
+    os.makedirs(output_dir, exist_ok=True)
+
+    for content_path in content_images:
+        content_image = load_image(content_path)
+        for style_path in style_images:
+            style_image = load_image(style_path)
+            print(f"🎨 Applying style '{os.path.basename(style_path)}' to photo '{os.path.basename(content_path)}'...")
+            stylized_image = model(tf.constant(content_image), tf.constant(style_image))[0]
+
+            content_name = os.path.splitext(os.path.basename(content_path))[0]
+            style_name = os.path.splitext(os.path.basename(style_path))[0]
+            output_filename = f"{content_name}_styled_with_{style_name}.jpg"
+            output_path = os.path.join(output_dir, output_filename)
+            save_image(stylized_image, output_path)
+
+    print("🎉 Done! All images styled successfully.")
+
+if __name__ == "__main__":
+    main()

@@ -1,37 +1,4 @@
-# NEURAL-STYLE-TRANSFER
-
-Navigation Menu
-NEURAL-STYLE-TRANSFER
-
-Code
-Issues
-2
-Pull requests
- 0 stars
- 0 forks
- 0 watching
- 1 Branch
- 0 Tags
- Activity
-Public repository
-GMKAIFU/NEURAL-STYLE-TRANSFER
-Name	
-GMKAIFU
-GMKAIFU
-last month
-Stylized_outputs
-last month
-content_images
-last month
-style_images
-last month
-NST.py
-last month
-README.md
-last month
-Repository files navigation
-README
-NEURAL STYLE TRANSFER
+#NEURAL-STYLE-TRANSFER
 COMPANY: CODTECH IT SOLUTIONS
 
 NAME: G M KAIFU

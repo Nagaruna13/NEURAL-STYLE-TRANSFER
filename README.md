@@ -1,5 +1,4 @@
-#NEURAL-STYLE-TRANSFER
- COMPANY: CODTECH IT SOLUTIONS
+#NEURAL-STYLE-TRANSFER                           COMPANY: CODTECH IT SOLUTIONS
 
 NAME: Gundlapalli Nagarjuna
 
@@ -110,5 +109,18 @@ Named like: output1.jpg, output2.jpg, output3.jpg, etc.
 
 Ready to use in reports, presentations, or as portfolio projects.
 
-OUTPUTS
-RUNNING OUTPUT FROM VSCODE
+# OUTPUTS
+# stylized_output
+![Image](https://github.com/user-attachments/assets/307d832d-338d-4906-9d3a-ccc0e21d0570)
+![Image](https://github.com/user-attachments/assets/ecc8eb48-1105-4d13-9670-cc15580750f0)
+![Image](https://github.com/user-attachments/assets/4aecaadd-8662-4bf9-b95e-ebb4868d34d3)
+![Image](https://github.com/user-attachments/assets/0ecf2c6f-7023-43aa-8f84-629e0b28f5f9)
+![Image](https://github.com/user-attachments/assets/040eaba2-1424-461f-ac0f-aa88c3ce1b3e)
+![Image](https://github.com/user-attachments/assets/dc0fbc6d-05e3-4626-8889-78f28217755b)
+# style_images
+![Image](https://github.com/user-attachments/assets/ede2901d-306e-4970-b52f-aac78f5768a4)
+<img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/136afab8-a0bd-4bdf-bc4d-fbbb799baf19" />
+![Image](https://github.com/user-attachments/assets/d5b257d9-a4a7-42a0-b461-123898a29baa)
+# content_images
+<img width="399" height="454" alt="Image" src="https://github.com/user-attachments/assets/cf7ee503-638d-4937-b650-b109b5f5b762" />
+![Image](https://github.com/user-attachments/assets/aaf15e25-2d9d-426b-847d-f150d32eae34)
